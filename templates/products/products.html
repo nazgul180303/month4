@@ -1,0 +1,13 @@
+{% extends 'layouts/index.html' %}
+
+
+{% block main %}
+    {% for i in posts %}
+        <h1>{{ i.name }}</h1>
+        <img src="{{ i.image.url }}" alt="images">
+        <h5>{{ i.description }}</h5>
+        <h5>{{ i.price }}</h5>
+        <h5>{{ i.created_ad }}</h5>
+        <h5>{{ i.updated_at }}</h5>
+    {% endfor %}
+{% endblock %}
