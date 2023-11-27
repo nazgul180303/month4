@@ -25,7 +25,9 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('product/', views.products_view),
-    path('', views.main_view)
+    path('product/<int:id>', views.product_detail),
+    path('category/', views.category_view),
+    path('', views.main_view),
     #path('current_date/', views.current_date),
     #path('goodby/',views.goodby) ,
     #path('islam/',views.islam),

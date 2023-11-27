@@ -1,0 +1,7 @@
+{% extends 'layouts/index.html' %}
+<h1>Categories</h1>
+{% block main %}
+    {% for i in category %}
+        <a href="#">{{ i.name }}</a>
+    {% endfor %}
+{% endblock %}
