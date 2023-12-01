@@ -4,8 +4,8 @@ from django.db import models
 # Create your models here.
 
 class Review(models.Model):
+    product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='reviews')
     name = models.CharField(max_length=255)
-
 
 
 class Category(models.Model):
@@ -20,7 +20,6 @@ class Product(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    reviews = models.ManyToManyField(Review)
     price = models.FloatField()
     created_ad = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
