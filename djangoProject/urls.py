@@ -1,6 +1,5 @@
 from post import views
 
-
 """
 URL configuration for djangoProject project.
 
@@ -20,18 +19,14 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('product/', views.products_view),
-    path('product/<int:id>', views.product_detail),
-    path('category/', views.category_view),
-    path('category/create', views.category_create),
-    path('', views.main_view),
-    path('product/create/', views.product_create),
-    #path('current_date/', views.current_date),
-    #path('goodby/',views.goodby) ,
-    #path('islam/',views.islam),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)\
-    + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('admin/', admin.site.urls),
+                  path('', include('post.urls')),
+                  path('user/', include('users.urls')),
+
+                  path('users/', include('users.urls'))
+
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+              + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
